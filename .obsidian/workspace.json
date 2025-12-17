@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "考研政治/分析题/34 马原.md",
+                "file": "考研政治/分析题/36 史纲.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "34 马原"
+              "title": "36 史纲"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "考研政治/分析题/34 马原.md",
+                "file": "考研政治/分析题/36 史纲.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "34 马原 的大纲"
+              "title": "36 史纲 的大纲"
             }
           },
           {
@@ -176,7 +176,21 @@
             }
           },
           {
-            "id": "efff36b32dda26a2",
+            "id": "218d8c97002134cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "考研政治/分析题/36 史纲.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "36 史纲"
+            }
+          },
+          {
+            "id": "432116c9a6a7c360",
             "type": "leaf",
             "state": {
               "type": "axon-view",
@@ -186,7 +200,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -205,10 +219,10 @@
       "axon:Axon Console": false
     }
   },
-  "active": "efff36b32dda26a2",
+  "active": "432116c9a6a7c360",
   "lastOpenFiles": [
-    "考研政治/分析题/36 史纲.md",
     "考研政治/分析题/34 马原.md",
+    "考研政治/分析题/36 史纲.md",
     "考研政治/分析题/万能歌颂补充句.md",
     "LICENSE",
     "图片",

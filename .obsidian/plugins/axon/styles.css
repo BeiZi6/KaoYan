@@ -392,6 +392,255 @@ body.theme-dark {
     opacity: 0.7;
 }
 
+/* Secondary button - GitHub outline style for Analyze button */
+.axon-analyze-button {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    background-color: var(--color-canvas-default);
+    color: var(--color-fg-default);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: var(--font-stack-sans);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.axon-analyze-button:hover:not(:disabled) {
+    background-color: var(--color-canvas-subtle);
+    border-color: var(--color-border-default);
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-analyze-button:active:not(:disabled) {
+    box-shadow: var(--color-shadow-small);
+    transform: translateY(1px);
+}
+
+.axon-analyze-button:disabled {
+    background-color: var(--color-canvas-subtle);
+    border-color: var(--color-border-muted);
+    color: var(--color-fg-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Button order - Analyze button on the left, Send on the right */
+.axon-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-subtle);
+}
+
+.axon-analyze-button {
+    order: 1;
+}
+
+.axon-send-button {
+    order: 2;
+}
+
+/* ==========================================================================
+   File Insight Card - GitHub Repo Overview Style
+   ========================================================================== */
+
+.axon-message-analysis {
+    border-left: 3px solid var(--color-accent-emphasis);
+    background-color: var(--color-accent-subtle);
+    padding: 0;
+}
+
+.axon-file-insight-card {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-file-header {
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border-default);
+    background-color: var(--color-canvas-subtle);
+}
+
+.axon-file-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+.axon-icon {
+    flex-shrink: 0;
+    color: var(--color-fg-muted);
+}
+
+.axon-file-body {
+    padding: var(--spacing-4);
+}
+
+.axon-file-path {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    padding: var(--spacing-2);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+}
+
+.axon-path-text {
+    font-size: var(--font-size-1);
+    color: var(--color-fg-muted);
+    font-family: var(--font-stack-mono);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.axon-file-stats {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+}
+
+.axon-stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+    flex: 1;
+}
+
+.axon-stat-item span {
+    font-size: var(--font-size-1);
+    color: var(--color-fg-default);
+    font-weight: var(--font-weight-normal);
+}
+
+.axon-frontmatter-section {
+    margin-top: var(--spacing-3);
+}
+
+.axon-section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+.axon-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+
+.axon-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-normal);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* GitHub-style label colors */
+.axon-tag-blue {
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent-fg);
+    border-color: var(--color-accent-emphasis);
+}
+
+.axon-tag-green {
+    background-color: var(--color-success-muted);
+    color: var(--color-success-fg);
+    border-color: var(--color-success-emphasis);
+}
+
+.axon-tag-yellow {
+    background-color: var(--color-attention-muted);
+    color: var(--color-attention-fg);
+    border-color: var(--color-attention-emphasis);
+}
+
+.axon-tag-red {
+    background-color: var(--color-danger-muted);
+    color: var(--color-danger-fg);
+    border-color: var(--color-danger-emphasis);
+}
+
+.axon-tag-gray {
+    background-color: var(--color-canvas-subtle);
+    color: var(--color-fg-muted);
+    border-color: var(--color-border-default);
+}
+
+.axon-tag-date {
+    background-color: var(--color-attention-muted);
+    color: var(--color-attention-fg);
+    border-color: var(--color-attention-emphasis);
+}
+
+.axon-tag:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-file-footer {
+    padding: var(--spacing-3) var(--spacing-4);
+    border-top: 1px solid var(--color-border-default);
+    background-color: var(--color-canvas-subtle);
+    text-align: center;
+}
+
+.axon-footer-icon {
+    font-size: var(--font-size-1);
+    color: var(--color-fg-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+/* Dark mode adjustments for tags */
+body.theme-dark .axon-tag-blue {
+    background-color: rgba(47, 129, 247, 0.2);
+    color: #2f81f7;
+}
+
+body.theme-dark .axon-tag-green {
+    background-color: rgba(63, 185, 80, 0.2);
+    color: #3fb950;
+}
+
+body.theme-dark .axon-tag-yellow {
+    background-color: rgba(210, 153, 34, 0.2);
+    color: #d29922;
+}
+
+body.theme-dark .axon-tag-red {
+    background-color: rgba(248, 81, 73, 0.2);
+    color: #f85149;
+}
+
 /* ==========================================================================
    Scrollbars - GitHub style
    ========================================================================== */
@@ -510,5 +759,233 @@ body.theme-dark {
 @keyframes shimmer {
     to {
         left: 100%;
+    }
+}
+
+
+/* ==========================================================================
+   Insight Card - New Analysis Card Style
+   ========================================================================== */
+
+.axon-insight-card {
+    background-color: var(--color-canvas-default);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-top: var(--spacing-3);
+}
+
+.axon-insight-header {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+    background-color: var(--color-canvas-subtle);
+}
+
+.axon-insight-title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
+}
+
+.axon-insight-icon {
+    font-size: var(--font-size-2);
+}
+
+.axon-insight-filename {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+.axon-insight-empty-badge {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-0);
+    background-color: var(--color-attention-muted);
+    color: var(--color-attention-fg);
+    border-radius: var(--border-radius);
+    margin-left: var(--spacing-2);
+}
+
+.axon-insight-path {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+    font-family: var(--font-stack-mono);
+    margin-bottom: var(--spacing-1);
+}
+
+.axon-insight-modified {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-subtle);
+}
+
+/* Stats Section */
+.axon-insight-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-2);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+}
+
+.axon-stat-icon {
+    font-size: var(--font-size-2);
+    margin-bottom: var(--spacing-1);
+}
+
+.axon-stat-label {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+}
+
+.axon-stat-value {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+/* Links Section */
+.axon-insight-links {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-insight-section-title {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+    margin-bottom: var(--spacing-2);
+}
+
+.axon-insight-links-content {
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+.axon-link-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.axon-link-type {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+    padding: var(--spacing-1) var(--spacing-2);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+}
+
+/* Frontmatter Section */
+.axon-insight-frontmatter {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-insight-fm-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.axon-fm-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.axon-fm-label {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+}
+
+.axon-fm-value {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-default);
+}
+
+.axon-fm-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+}
+
+.axon-fm-tag {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-0);
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent-fg);
+    border-radius: var(--border-radius);
+}
+
+/* Headings Section */
+.axon-insight-headings {
+    padding: var(--spacing-3);
+}
+
+.axon-collapsible {
+    cursor: pointer;
+    user-select: none;
+}
+
+.axon-collapsible:hover {
+    color: var(--color-accent-fg);
+}
+
+.axon-toggle-icon {
+    font-size: var(--font-size-0);
+    margin-right: var(--spacing-1);
+}
+
+.axon-insight-headings-content {
+    margin-top: var(--spacing-2);
+    max-height: 200px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease-out;
+}
+
+.axon-insight-headings-content.axon-collapsed {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.axon-heading-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-1) 0;
+    font-size: var(--font-size-0);
+    color: var(--color-fg-default);
+}
+
+.axon-heading-marker {
+    color: var(--color-fg-muted);
+    font-family: var(--font-stack-mono);
+    margin-right: var(--spacing-1);
+}
+
+.axon-heading-text {
+    color: var(--color-fg-default);
+}
+
+/* Heading level indentation */
+.axon-heading-level-1 { font-weight: var(--font-weight-semibold); }
+.axon-heading-level-2 { font-weight: var(--font-weight-semibold); }
+.axon-heading-level-3 { font-weight: var(--font-weight-normal); }
+.axon-heading-level-4 { font-weight: var(--font-weight-normal); }
+.axon-heading-level-5 { font-weight: var(--font-weight-normal); color: var(--color-fg-muted); }
+.axon-heading-level-6 { font-weight: var(--font-weight-normal); color: var(--color-fg-muted); }
+
+/* Responsive adjustments for Insight Card */
+@media (max-width: 400px) {
+    .axon-insight-stats {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
