@@ -1,0 +1,514 @@
+/* Axon 插件样式 - GitHub Primer Design System */
+
+/* ==========================================================================
+   GitHub Color System (Primer Design Tokens)
+   ========================================================================== */
+
+:root {
+    /* Light mode colors - GitHub style */
+    --color-fg-default: #24292f;
+    --color-fg-muted: #57606a;
+    --color-fg-subtle: #656d76;
+    --color-fg-on-emphasis: #ffffff;
+
+    --color-canvas-default: #ffffff;
+    --color-canvas-overlay: #ffffff;
+    --color-canvas-subtle: #f6f8fa;
+    --color-canvas-inset: #ffffff;
+
+    --color-border-default: #d0d7de;
+    --color-border-muted: #d8dee4;
+    --color-neutral-muted: #656d76;
+
+    --color-accent-fg: #0969da;
+    --color-accent-emphasis: #1f6feb;
+    --color-accent-muted: #dbe9ff;
+    --color-accent-subtle: #eaeef2;
+
+    --color-success-fg: #1a7f37;
+    --color-success-emphasis: #1f883d;
+    --color-success-muted: #dafbe1;
+    --color-success-subtle: #eaeef2;
+
+    --color-danger-fg: #cf222e;
+    --color-danger-emphasis: #cf222e;
+    --color-danger-muted: #ffebe9;
+    --color-danger-subtle: #ffebe9;
+
+    --color-attention-fg: #9a6700;
+    --color-attention-emphasis: #bf8700;
+    --color-attention-muted: #fff8c5;
+    --color-attention-subtle: #fff8c5;
+
+    --color-shadow-small: 0 1px 0 0 rgba(31, 35, 40, 0.04);
+    --color-shadow-medium: 0 3px 6px 1px rgba(31, 35, 40, 0.15);
+    --color-shadow-large: 0 8px 24px 2px rgba(31, 35, 40, 0.15);
+
+    --color-neutral-emphasis: #656d76;
+    --color-neutral-strong: #24292f;
+
+    /* Typography - GitHub font stack */
+    --font-stack-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-stack-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+    --font-size-0: 12px;
+    --font-size-1: 14px;
+    --font-size-2: 16px;
+    --font-size-3: 20px;
+
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+
+    --border-radius: 6px;
+    --border-radius-large: 8px;
+
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+}
+
+/* Dark mode colors - GitHub style */
+body.theme-dark {
+    --color-fg-default: #e6edf3;
+    --color-fg-muted: #8b949e;
+    --color-fg-subtle: #8b949e;
+    --color-fg-on-emphasis: #ffffff;
+
+    --color-canvas-default: #0d1117;
+    --color-canvas-overlay: #161b22;
+    --color-canvas-subtle: #161b22;
+    --color-canvas-inset: #0d1117;
+
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+    --color-neutral-muted: #656d76;
+
+    --color-accent-fg: #2f81f7;
+    --color-accent-emphasis: #1f6feb;
+    --color-accent-muted: #1c2128;
+    --color-accent-subtle: #1c2128;
+
+    --color-success-fg: #3fb950;
+    --color-success-emphasis: #238636;
+    --color-success-muted: #1c2128;
+    --color-success-subtle: #1c2128;
+
+    --color-danger-fg: #f85149;
+    --color-danger-emphasis: #da3633;
+    --color-danger-muted: #1c2128;
+    --color-danger-subtle: #1c2128;
+
+    --color-attention-fg: #d29922;
+    --color-attention-emphasis: #9e6a03;
+    --color-attention-muted: #1c2128;
+    --color-attention-subtle: #1c2128;
+
+    --color-shadow-small: 0 1px 0 0 rgba(1, 4, 9, 0.5);
+    --color-shadow-medium: 0 3px 6px 1px rgba(1, 4, 9, 0.5);
+    --color-shadow-large: 0 8px 24px 2px rgba(1, 4, 9, 0.5);
+
+    --color-neutral-emphasis: #656d76;
+    --color-neutral-strong: #e6edf3;
+}
+
+/* ==========================================================================
+   Main Container
+   ========================================================================== */
+
+.axon-view-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-canvas-default);
+    font-family: var(--font-stack-sans);
+    color: var(--color-fg-default);
+}
+
+.axon-main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+}
+
+/* ==========================================================================
+   Header - GitHub Issue Header Style
+   ========================================================================== */
+
+.axon-console-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-3) var(--spacing-4);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-canvas-subtle);
+}
+
+.axon-console-title {
+    margin: 0;
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+.axon-clear-button {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-normal);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    background-color: var(--color-canvas-default);
+    color: var(--color-fg-muted);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.axon-clear-button:hover {
+    background-color: var(--color-canvas-inset);
+    border-color: var(--color-border-default);
+    color: var(--color-fg-default);
+}
+
+/* ==========================================================================
+   Messages Container - GitHub Issue Discussion Style
+   ========================================================================== */
+
+.axon-console-output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-canvas-subtle);
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.axon-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-4);
+    background-color: var(--color-canvas-subtle);
+}
+
+/* ==========================================================================
+   Messages - GitHub Comment/Issue Style
+   ========================================================================== */
+
+.axon-message {
+    position: relative;
+    margin-bottom: var(--spacing-4);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    background-color: var(--color-canvas-default);
+    padding: var(--spacing-3);
+    box-shadow: var(--color-shadow-small);
+}
+
+/* Message header with avatar placeholder and metadata */
+.axon-message-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+}
+
+.axon-message-type {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.axon-message-timestamp {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+}
+
+/* Message content */
+.axon-message-content {
+    font-size: var(--font-size-1);
+    line-height: 1.5;
+    color: var(--color-fg-default);
+    font-family: var(--font-stack-sans);
+}
+
+/* Code blocks in messages - GitHub style */
+.axon-message-content code {
+    padding: var(--spacing-1) var(--spacing-2);
+    background-color: var(--color-canvas-subtle);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    font-family: var(--font-stack-mono);
+    font-size: 85%;
+    color: var(--color-fg-default);
+}
+
+.axon-message-content pre {
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-subtle);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    font-family: var(--font-stack-mono);
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+.axon-message-content pre code {
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 100%;
+}
+
+.axon-message-content strong {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+}
+
+/* Message type variations - GitHub style */
+.axon-message-user {
+    border-left: 3px solid var(--color-accent-emphasis);
+    background-color: var(--color-accent-subtle);
+}
+
+.axon-message-assistant {
+    border-left: 3px solid var(--color-success-emphasis);
+    background-color: var(--color-success-muted);
+}
+
+.axon-message-system {
+    border-left: 3px solid var(--color-attention-emphasis);
+    background-color: var(--color-attention-muted);
+}
+
+.axon-message-error {
+    border-left: 3px solid var(--color-danger-emphasis);
+    background-color: var(--color-danger-muted);
+}
+
+/* ==========================================================================
+   Input Panel - GitHub Comment Editor Style
+   ========================================================================== */
+
+.axon-input-panel {
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-canvas-default);
+    overflow: hidden;
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.axon-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--spacing-3);
+    border: none;
+    border-bottom: 1px solid var(--color-border-default);
+    border-radius: 0;
+    font-size: var(--font-size-1);
+    font-family: var(--font-stack-sans);
+    line-height: 1.5;
+    resize: vertical;
+    background-color: var(--color-canvas-default);
+    color: var(--color-fg-default);
+    transition: none;
+}
+
+.axon-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-accent-emphasis);
+    box-shadow: 0 0 0 3px var(--color-accent-muted);
+}
+
+.axon-textarea::placeholder {
+    color: var(--color-fg-muted);
+}
+
+.axon-textarea:disabled {
+    background-color: var(--color-canvas-subtle);
+    color: var(--color-fg-muted);
+    cursor: not-allowed;
+}
+
+/* Button container - GitHub comment editor style */
+.axon-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-subtle);
+}
+
+/* ==========================================================================
+   Buttons - GitHub Button Style
+   ========================================================================== */
+
+/* Primary button - GitHub green style */
+.axon-send-button {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-semibold);
+    border: 1px solid var(--color-success-emphasis);
+    border-radius: var(--border-radius);
+    background-color: var(--color-success-emphasis);
+    color: var(--color-fg-on-emphasis);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: var(--font-stack-sans);
+}
+
+.axon-send-button:hover:not(:disabled) {
+    background-color: var(--color-success-fg);
+    border-color: var(--color-success-fg);
+    box-shadow: var(--color-shadow-medium);
+}
+
+.axon-send-button:active:not(:disabled) {
+    box-shadow: var(--color-shadow-small);
+    transform: translateY(1px);
+}
+
+.axon-send-button:disabled {
+    background-color: var(--color-border-muted);
+    border-color: var(--color-border-muted);
+    color: var(--color-fg-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   Scrollbars - GitHub style
+   ========================================================================== */
+
+.axon-messages-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.axon-messages-container::-webkit-scrollbar-track {
+    background: var(--color-canvas-subtle);
+}
+
+.axon-messages-container::-webkit-scrollbar-thumb {
+    background: var(--color-border-default);
+    border: 3px solid var(--color-canvas-subtle);
+    border-radius: 6px;
+}
+
+.axon-messages-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral-muted);
+}
+
+/* ==========================================================================
+   Utility Classes - GitHub style
+   ========================================================================== */
+
+.axon-message-content .issue-link {
+    color: var(--color-accent-fg);
+    text-decoration: none;
+}
+
+.axon-message-content .issue-link:hover {
+    text-decoration: underline;
+    color: var(--color-accent-emphasis);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .axon-main-container {
+        padding: var(--spacing-3);
+        gap: var(--spacing-3);
+    }
+
+    .axon-message {
+        padding: var(--spacing-2);
+    }
+
+    .axon-textarea {
+        min-height: 80px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .axon-send-button {
+        width: 100%;
+        padding: var(--spacing-3);
+    }
+}
+
+/* ==========================================================================
+   Focus styles - GitHub accessibility
+   ========================================================================== */
+
+.axon-clear-button:focus-visible,
+.axon-send-button:focus-visible {
+    outline: 2px solid var(--color-accent-emphasis);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Animation - GitHub subtle animations
+   ========================================================================== */
+
+.axon-message {
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Loading states - GitHub skeleton style
+   ========================================================================== */
+
+.axon-message.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.axon-message.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-canvas-subtle),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    to {
+        left: 100%;
+    }
+}

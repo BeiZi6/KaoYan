@@ -1,0 +1,10 @@
+{
+  "axon:open-axon-console": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "J"
+    }
+  ]
+}
