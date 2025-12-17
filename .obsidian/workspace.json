@@ -174,9 +174,19 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "efff36b32dda26a2",
+            "type": "leaf",
+            "state": {
+              "type": "axon-view",
+              "state": {},
+              "icon": "terminal-square",
+              "title": "Axon Console"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -195,7 +205,7 @@
       "axon:Axon Console": false
     }
   },
-  "active": "bda5dbbf27600eed",
+  "active": "efff36b32dda26a2",
   "lastOpenFiles": [
     "考研政治/分析题/36 史纲.md",
     "考研政治/分析题/34 马原.md",
