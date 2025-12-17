@@ -74,3 +74,69 @@ export interface AnalyzeEventData {
   result?: FileAnalysisResult;
   error?: string;
 }
+
+/** 插件设置 */
+export interface AxonSettings {
+  apiKey: string;
+  modelName: string;
+}
+
+export const DEFAULT_SETTINGS: AxonSettings = {
+  apiKey: '',
+  modelName: 'deepseek-chat'
+};
+
+/** DeepSeek API 消息 */
+export interface ChatMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
+/** DeepSeek API 请求 */
+export interface ChatRequest {
+  model: string;
+  messages: ChatMessage[];
+  stream: boolean;
+}
+
+/** DeepSeek API 响应 */
+export interface DeepSeekResponse {
+  id: string;
+  object: string;
+  created: number;
+  model: string;
+  choices: {
+    index: number;
+    message: {
+      role: string;
+      content: string;
+    };
+    finish_reason: string;
+  }[];
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+}
+
+/** 上下文模式 */
+export type ContextMode = 'selection' | 'fullNote' | 'noFile';
+
+/** 选区状态 */
+export interface SelectionState {
+  mode: ContextMode;
+  selectedText: string | null;
+  originalSelection: string | null;
+  timestamp: number;
+}
+
+/** 对话数据 */
+export interface ConversationData {
+  userMessage: string;
+  aiResponse: string;
+  context?: string;
+  timestamp: Date;
+  contextMode: ContextMode;
+  originalSelection?: string;
+}

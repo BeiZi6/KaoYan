@@ -1,7 +1,7 @@
 {
   "id": "axon",
   "name": "Axon",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "An AI Agent integrated into Obsidian's sidebar for dynamic neural connections",
   "author": "Your Name",
   "authorUrl": "https://github.com/yourusername",

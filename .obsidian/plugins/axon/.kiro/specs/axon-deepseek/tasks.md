@@ -1,0 +1,141 @@
+# Implementation Plan
+
+- [x] 1. Create settings infrastructure
+  - [x] 1.1 Define AxonSettings interface and DEFAULT_SETTINGS in types.ts
+    - Add apiKey and modelName fields
+    - Set default modelName to "deepseek-chat"
+    - _Requirements: 1.5_
+  - [x] 1.2 Create AxonSettingsTab class
+    - Extend PluginSettingTab
+    - Add API Key input with password type for masking
+    - Add Model Name input with default value
+    - Implement save functionality
+    - _Requirements: 1.1, 1.2, 1.3_
+  - [x] 1.3 Update AxonPlugin to load and save settings
+    - Add loadSettings and saveSettings methods
+    - Register settings tab in onload
+    - _Requirements: 1.3, 1.4_
+  - [x] 1.4 Write property test for settings round-trip
+    - **Property 2: Settings Round-Trip Persistence**
+    - **Validates: Requirements 1.3, 1.4**
+
+- [x] 2. Implement DeepSeekService
+  - [x] 2.1 Create DeepSeekService class
+    - Constructor accepts App and settings reference
+    - Implement isConfigured() method
+    - _Requirements: 2.6_
+  - [x] 2.2 Implement chat method with request construction
+    - Build ChatMessage array with system prompt
+    - Include context in user message if provided
+    - Use Obsidian requestUrl for API call
+    - _Requirements: 2.1, 2.2, 2.3, 2.4_
+  - [x] 2.3 Implement context injection helper
+    - Format: "Context from active note:\n\n${content}\n\nUser Question: ${question}"
+    - _Requirements: 2.3_
+  - [x] 2.4 Write property test for request construction
+    - **Property 3: Request Construction Completeness**
+    - **Validates: Requirements 2.1, 2.2, 2.3**
+  - [x] 2.5 Write property test for context injection
+    - **Property 4: Context Injection Format**
+    - **Validates: Requirements 2.3**
+
+- [x] 3. Implement FileOperations service
+  - [x] 3.1 Create FileOperations class
+    - Constructor accepts App reference
+    - _Requirements: 3.2, 3.3_
+  - [x] 3.2 Implement appendToCurrentFile method
+    - Get active file from workspace
+    - Append content with separator
+    - Handle no active file error
+    - _Requirements: 3.2, 3.4_
+  - [x] 3.3 Implement createChatNote method
+    - Generate filename with timestamp pattern
+    - Format conversation as markdown
+    - Create file in vault
+    - _Requirements: 3.3_
+  - [x] 3.4 Write property test for file append
+    - **Property 6: File Append Operation**
+    - **Validates: Requirements 3.2**
+  - [x] 3.5 Write property test for chat note creation
+    - **Property 7: Chat Note Creation**
+    - **Validates: Requirements 3.3**
+
+- [x] 4. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 5. Create ActionableCard UI component
+  - [x] 5.1 Create ActionableCard class
+    - Accept response content and conversation data
+    - Render response with markdown formatting
+    - _Requirements: 3.1, 5.1_
+  - [x] 5.2 Implement action buttons (Append, Save Note)
+    - Add 📥 Append button with click handler
+    - Add 📄 Save Note button with click handler
+    - Style with GitHub button design
+    - _Requirements: 3.1_
+  - [x] 5.3 Implement markdown rendering for responses
+    - Parse bold, italic, code, lists
+    - Apply syntax highlighting to code blocks
+    - _Requirements: 5.1, 5.2_
+  - [x] 5.4 Write property test for actionable card rendering
+    - **Property 5: Actionable Card Rendering**
+    - **Validates: Requirements 3.1**
+  - [x] 5.5 Write property test for markdown rendering
+    - **Property 10: Markdown Rendering**
+    - **Validates: Requirements 5.1, 5.2**
+
+- [x] 6. Integrate AI chat into AxonView
+  - [x] 6.1 Add DeepSeekService and FileOperations to AxonView
+    - Instantiate services in constructor
+    - Pass settings reference to DeepSeekService
+    - _Requirements: 2.1_
+  - [x] 6.2 Update message handler to call DeepSeek API
+    - Check if API is configured
+    - Get current file context
+    - Call DeepSeekService.chat()
+    - Display response in ActionableCard
+    - _Requirements: 2.1, 2.5, 2.6_
+  - [x] 6.3 Implement loading state management
+    - Disable input during API call
+    - Show loading indicator on button
+    - Re-enable after completion
+    - _Requirements: 4.1, 4.2, 4.3_
+  - [x] 6.4 Wire up action button handlers
+    - Connect Append button to FileOperations.appendToCurrentFile
+    - Connect Save Note button to FileOperations.createChatNote
+    - Show success/error notifications
+    - _Requirements: 3.2, 3.3, 3.5_
+  - [x] 6.5 Write property test for loading state
+    - **Property 8: Loading State Toggle**
+    - **Validates: Requirements 4.1, 4.2, 4.3**
+
+- [x] 7. Implement error handling
+  - [x] 7.1 Add error handling for missing API key
+    - Check configuration before API call
+    - Display friendly error message
+    - _Requirements: 2.6_
+  - [x] 7.2 Add error handling for API errors
+    - Catch network and API errors
+    - Display user-friendly messages
+    - _Requirements: 4.4_
+  - [x] 7.3 Add error handling for file operations
+    - Handle no active file for append
+    - Handle file write errors
+    - _Requirements: 3.4_
+  - [x] 7.4 Write property test for error handling
+    - **Property 9: Error Message User-Friendliness**
+    - **Validates: Requirements 4.4**
+
+- [x] 8. Update styles for new components
+  - Add CSS for settings tab
+  - Add CSS for action buttons (GitHub green/blue style)
+  - Add CSS for loading state
+  - Add CSS for code syntax highlighting
+  - _Requirements: 5.2_
+
+- [x] 9. Update manifest version
+  - Update version to 1.1.0
+  - _Requirements: N/A_
+
+- [x] 10. Final Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

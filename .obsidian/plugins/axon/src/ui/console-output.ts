@@ -4,8 +4,11 @@
  */
 
 import { SimpleEventBus } from '../core/event-bus';
-import { ConsoleMessage, FileAnalysisResult } from '../core/types';
+import { ConsoleMessage, FileAnalysisResult, ConversationData } from '../core/types';
 import { InsightCard } from './insight-card';
+import { ActionableCard } from './actionable-card';
+import { ToolOutputCard, ToolOutputData } from './tool-output-card';
+import { ToolCall } from '../core/tool-manager';
 
 export class AxonConsoleOutput {
   private container!: HTMLElement;
@@ -89,6 +92,37 @@ export class AxonConsoleOutput {
     this.scrollToBottom();
   }
 
+  /** 添加可执行的 AI 响应卡片 */
+  addActionableCard(
+    data: ConversationData,
+    onAppend: () => void,
+    onSaveNote: () => void,
+    onReplace?: () => void
+  ): void {
+    const cardContainer = this.messagesContainer.createDiv({
+      cls: 'axon-message axon-message-assistant'
+    });
+
+    const header = cardContainer.createDiv({
+      cls: 'axon-message-header'
+    });
+
+    header.createEl('span', {
+      cls: 'axon-message-type',
+      text: '🤖 Axon'
+    });
+
+    header.createEl('span', {
+      cls: 'axon-message-timestamp',
+      text: this.formatTimestamp(data.timestamp)
+    });
+
+    const card = new ActionableCard(data, onAppend, onSaveNote, onReplace);
+    card.render(cardContainer);
+
+    this.scrollToBottom();
+  }
+
   clear(): void {
     this.messages = [];
     this.messagesContainer.empty();
@@ -153,5 +187,20 @@ export class AxonConsoleOutput {
 
   private scrollToBottom(): void {
     this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+  }
+
+  /** 添加工具执行输出卡片 */
+  addToolOutput(data: ToolOutputData): void {
+    const card = new ToolOutputCard();
+    card.render(this.messagesContainer, data);
+    this.scrollToBottom();
+  }
+
+  /** 添加工具执行加载状态卡片，返回卡片实例以便后续更新 */
+  addToolOutputLoading(toolCall: ToolCall): ToolOutputCard {
+    const card = new ToolOutputCard();
+    card.renderLoading(this.messagesContainer, toolCall);
+    this.scrollToBottom();
+    return card;
   }
 }

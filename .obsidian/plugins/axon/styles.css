@@ -989,3 +989,508 @@ body.theme-dark .axon-tag-red {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+/* ==========================================================================
+   Settings Tab Styles
+   ========================================================================== */
+
+.axon-api-key-input {
+    font-family: var(--font-stack-mono);
+}
+
+.axon-settings-status {
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-4);
+}
+
+.axon-status-ok {
+    color: var(--color-success-fg);
+    margin: var(--spacing-1) 0;
+}
+
+.axon-status-warning {
+    color: var(--color-attention-fg);
+    margin: var(--spacing-1) 0;
+}
+
+.axon-status-info {
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-0);
+    margin: var(--spacing-1) 0;
+}
+
+.axon-settings-help {
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-subtle);
+    border-radius: var(--border-radius);
+}
+
+.axon-settings-help p {
+    margin: var(--spacing-1) 0;
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-1);
+}
+
+.axon-settings-help a {
+    color: var(--color-accent-fg);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: var(--spacing-2);
+}
+
+.axon-settings-help a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Actionable Card Styles
+   ========================================================================== */
+
+.axon-actionable-card {
+    margin-top: var(--spacing-2);
+}
+
+.axon-ai-response-content {
+    padding: var(--spacing-3);
+    background-color: var(--color-canvas-default);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-3);
+    line-height: 1.6;
+}
+
+.axon-ai-response-content h2,
+.axon-ai-response-content h3,
+.axon-ai-response-content h4 {
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-2);
+    color: var(--color-fg-default);
+}
+
+.axon-ai-response-content p {
+    margin: var(--spacing-2) 0;
+}
+
+.axon-ai-response-content ul,
+.axon-ai-response-content ol {
+    margin: var(--spacing-2) 0;
+    padding-left: var(--spacing-4);
+}
+
+.axon-ai-response-content li {
+    margin: var(--spacing-1) 0;
+}
+
+.axon-ai-response-content a {
+    color: var(--color-accent-fg);
+    text-decoration: none;
+}
+
+.axon-ai-response-content a:hover {
+    text-decoration: underline;
+}
+
+/* Code blocks in AI response */
+.axon-code-block {
+    background-color: var(--color-canvas-subtle);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-3);
+    margin: var(--spacing-2) 0;
+    overflow-x: auto;
+    font-family: var(--font-stack-mono);
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+.axon-code-block code {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.axon-inline-code {
+    background-color: var(--color-canvas-subtle);
+    border: 1px solid var(--color-border-default);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: var(--font-stack-mono);
+    font-size: 85%;
+}
+
+/* Action buttons */
+.axon-action-buttons {
+    display: flex;
+    gap: var(--spacing-2);
+    padding-top: var(--spacing-2);
+    border-top: 1px solid var(--color-border-default);
+}
+
+.axon-action-btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: var(--font-stack-sans);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.axon-action-append {
+    background-color: var(--color-success-emphasis);
+    border: 1px solid var(--color-success-emphasis);
+    color: var(--color-fg-on-emphasis);
+}
+
+.axon-action-append:hover {
+    background-color: var(--color-success-fg);
+    border-color: var(--color-success-fg);
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-action-save {
+    background-color: var(--color-accent-emphasis);
+    border: 1px solid var(--color-accent-emphasis);
+    color: var(--color-fg-on-emphasis);
+}
+
+.axon-action-save:hover {
+    background-color: var(--color-accent-fg);
+    border-color: var(--color-accent-fg);
+    box-shadow: var(--color-shadow-small);
+}
+
+.axon-action-btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   Loading State Styles
+   ========================================================================== */
+
+.axon-send-button.axon-loading {
+    background-color: var(--color-neutral-muted);
+    border-color: var(--color-neutral-muted);
+    cursor: wait;
+}
+
+.axon-send-button.axon-loading:hover {
+    background-color: var(--color-neutral-muted);
+    border-color: var(--color-neutral-muted);
+    box-shadow: none;
+}
+
+/* Pulse animation for loading */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.axon-loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Dark Mode Adjustments for New Components
+   ========================================================================== */
+
+body.theme-dark .axon-ai-response-content {
+    background-color: var(--color-canvas-overlay);
+}
+
+body.theme-dark .axon-code-block {
+    background-color: #161b22;
+    border-color: var(--color-border-default);
+}
+
+body.theme-dark .axon-inline-code {
+    background-color: rgba(110, 118, 129, 0.4);
+}
+
+
+/* ==========================================================================
+   Context Indicator Styles
+   ========================================================================== */
+
+.axon-indicator-container {
+    padding: var(--spacing-2) var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-context-indicator {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.2s ease-in-out;
+}
+
+.axon-context-text {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+/* Selection Mode - Highlighted */
+.axon-context-selection {
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent-fg);
+    border: 1px solid var(--color-accent-emphasis);
+}
+
+/* Full Note Mode - Subtle */
+.axon-context-fullnote {
+    background-color: var(--color-canvas-subtle);
+    color: var(--color-fg-muted);
+    border: 1px solid var(--color-border-default);
+}
+
+/* No File Mode - Warning */
+.axon-context-nofile {
+    background-color: var(--color-attention-muted);
+    color: var(--color-attention-fg);
+    border: 1px solid var(--color-attention-emphasis);
+}
+
+/* ==========================================================================
+   Replace Selection Button Styles
+   ========================================================================== */
+
+.axon-action-replace {
+    background-color: var(--color-accent-emphasis);
+    border: 1px solid var(--color-accent-emphasis);
+    color: var(--color-fg-on-emphasis);
+    font-weight: var(--font-weight-semibold);
+}
+
+.axon-action-replace:hover {
+    background-color: var(--color-accent-fg);
+    border-color: var(--color-accent-fg);
+    box-shadow: var(--color-shadow-medium);
+    transform: translateY(-1px);
+}
+
+.axon-action-replace:active {
+    transform: translateY(0);
+    box-shadow: var(--color-shadow-small);
+}
+
+/* Secondary Append Button (in selection mode) */
+.axon-action-append-secondary {
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    color: var(--color-fg-default);
+}
+
+.axon-action-append-secondary:hover {
+    background-color: var(--color-canvas-subtle);
+    border-color: var(--color-border-default);
+}
+
+/* ==========================================================================
+   Dark Mode Adjustments for Context Indicator
+   ========================================================================== */
+
+body.theme-dark .axon-context-selection {
+    background-color: rgba(47, 129, 247, 0.15);
+    border-color: var(--color-accent-emphasis);
+}
+
+body.theme-dark .axon-context-nofile {
+    background-color: rgba(210, 153, 34, 0.15);
+    border-color: var(--color-attention-emphasis);
+}
+
+
+/* ==========================================================================
+   Tool Output Card Styles - MCP Agent Mode
+   ========================================================================== */
+
+.axon-tool-output {
+    margin: var(--spacing-3) 0;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--border-radius);
+    background-color: var(--color-canvas-subtle);
+    overflow: hidden;
+    font-family: var(--font-stack-mono);
+    font-size: var(--font-size-0);
+}
+
+.axon-tool-output-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    background-color: var(--color-canvas-inset);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-tool-output-icon {
+    font-size: var(--font-size-1);
+}
+
+.axon-tool-output-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-fg-default);
+    flex: 1;
+}
+
+.axon-tool-output-time {
+    font-size: var(--font-size-0);
+    color: var(--color-fg-muted);
+}
+
+.axon-tool-output-params {
+    padding: var(--spacing-2) var(--spacing-3);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+.axon-tool-output-params strong {
+    display: block;
+    margin-bottom: var(--spacing-1);
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-0);
+}
+
+.axon-tool-output-params pre {
+    margin: 0;
+    padding: var(--spacing-2);
+    background-color: var(--color-canvas-default);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+}
+
+.axon-tool-output-params code {
+    font-family: var(--font-stack-mono);
+    font-size: var(--font-size-0);
+    color: var(--color-fg-default);
+}
+
+.axon-tool-output-result {
+    padding: var(--spacing-2) var(--spacing-3);
+}
+
+.axon-tool-output-status {
+    margin-bottom: var(--spacing-2);
+}
+
+.axon-tool-status-success {
+    color: var(--color-success-fg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.axon-tool-status-error {
+    color: var(--color-danger-fg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.axon-tool-output-content {
+    padding: var(--spacing-2);
+    background-color: var(--color-canvas-default);
+    border-radius: var(--border-radius);
+    color: var(--color-fg-default);
+    word-break: break-word;
+}
+
+.axon-tool-output-content pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Loading state */
+.axon-tool-output-loading {
+    opacity: 0.8;
+}
+
+.axon-tool-output-spinner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    color: var(--color-fg-muted);
+}
+
+.axon-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--color-border-default);
+    border-top-color: var(--color-accent-emphasis);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success state */
+.axon-tool-output-success {
+    border-left: 3px solid var(--color-success-emphasis);
+}
+
+.axon-tool-output-success .axon-tool-output-header {
+    background-color: var(--color-success-muted);
+}
+
+/* Error state */
+.axon-tool-output-error {
+    border-left: 3px solid var(--color-danger-emphasis);
+}
+
+.axon-tool-output-error .axon-tool-output-header {
+    background-color: var(--color-danger-muted);
+}
+
+/* ==========================================================================
+   Agent Mode Indicator
+   ========================================================================== */
+
+.axon-agent-mode-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    background-color: var(--color-accent-muted);
+    border: 1px solid var(--color-accent-emphasis);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-0);
+    color: var(--color-accent-fg);
+}
+
+.axon-agent-mode-icon {
+    font-size: var(--font-size-1);
+}
+
+.axon-agent-mode-text {
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Dark mode adjustments */
+body.theme-dark .axon-tool-output {
+    background-color: var(--color-canvas-overlay);
+}
+
+body.theme-dark .axon-tool-output-header {
+    background-color: var(--color-canvas-subtle);
+}
+
+body.theme-dark .axon-tool-output-params pre,
+body.theme-dark .axon-tool-output-content {
+    background-color: var(--color-canvas-inset);
+}

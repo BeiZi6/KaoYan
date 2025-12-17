@@ -1,0 +1,146 @@
+# Implementation Plan
+
+- [x] 1. Create ToolManager core infrastructure
+  - [x] 1.1 Create tool-manager.ts with ToolManager class skeleton
+    - Define ToolDefinition, ToolResult, ToolCall interfaces
+    - Implement getToolDefinitions() method returning JSON schemas
+    - Implement execute() dispatcher method
+    - _Requirements: 4.3, 4.5_
+  - [x] 1.2 Write property test for parameter validation
+    - **Property 11: Parameter validation rejects invalid params**
+    - **Validates: Requirements 4.5**
+  - [x] 1.3 Implement path normalization utility
+    - Create normalizePath() method to handle .md extension
+    - Handle edge cases: empty path, already has extension, special characters
+    - _Requirements: 1.2_
+  - [x] 1.4 Write property test for path normalization
+    - **Property 2: Path normalization adds .md extension**
+    - **Validates: Requirements 1.2**
+
+- [x] 2. Implement read_note tool
+  - [x] 2.1 Implement readNote() method in ToolManager
+    - Use Obsidian Vault API to read file content
+    - Handle file not found error
+    - Return ToolResult with content or error
+    - _Requirements: 1.1, 1.4, 1.5_
+  - [x] 2.2 Write property test for read_note round-trip
+    - **Property 1: Read note round-trip**
+    - **Validates: Requirements 1.1**
+  - [x] 2.3 Write property test for non-existent file error
+    - **Property 3: Non-existent file returns error**
+    - **Validates: Requirements 1.4**
+
+- [x] 3. Implement create_note tool
+  - [x] 3.1 Implement createNote() method in ToolManager
+    - Support overwrite and append modes
+    - Auto-create parent folders if needed
+    - Validate path for illegal characters
+    - Return success/error ToolResult
+    - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
+  - [x] 3.2 Write property test for create_note round-trip
+    - **Property 4: Create note round-trip**
+    - **Validates: Requirements 2.1**
+  - [x] 3.3 Write property test for write mode behavior
+    - **Property 5: Write mode behavior**
+    - **Validates: Requirements 2.2, 2.3**
+  - [x] 3.4 Write property test for nested folder creation
+    - **Property 6: Nested folder auto-creation**
+    - **Validates: Requirements 2.4**
+  - [x] 3.5 Write property test for invalid path error
+    - **Property 7: Invalid path returns error**
+    - **Validates: Requirements 2.5**
+
+- [x] 4. Implement list_folder tool
+  - [x] 4.1 Implement listFolder() method in ToolManager
+    - Use Obsidian Vault API to list folder contents
+    - Handle root folder (empty string or "/")
+    - Include type indicator (file/folder) for each item
+    - Handle folder not found error
+    - _Requirements: 3.1, 3.2, 3.3, 3.4_
+  - [x] 4.2 Write property test for list_folder contents
+    - **Property 8: List folder returns all contents**
+    - **Validates: Requirements 3.1**
+  - [x] 4.3 Write property test for folder not found error
+    - **Property 9: Non-existent folder returns error**
+    - **Validates: Requirements 3.3**
+  - [x] 4.4 Write property test for type indicators
+    - **Property 10: List folder includes type indicators**
+    - **Validates: Requirements 3.4**
+
+- [x] 5. Checkpoint - Ensure all ToolManager tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 6. Create ToolParser for response parsing
+  - [x] 6.1 Create tool-parser.ts with ToolParser class
+    - Implement parse() method to extract json:tool blocks
+    - Implement extractToolBlocks() using regex
+    - Separate text content from tool calls
+    - Handle malformed JSON gracefully
+    - _Requirements: 5.1, 7.1, 7.5_
+  - [x] 6.2 Write property test for tool block parsing
+    - **Property 12: Tool block parsing extracts correct data**
+    - **Validates: Requirements 5.1**
+  - [x] 6.3 Write property test for malformed JSON handling
+    - **Property 14: Malformed JSON handled gracefully**
+    - **Validates: Requirements 7.1**
+  - [x] 6.4 Write property test for mixed response parsing
+    - **Property 16: Mixed response text extraction**
+    - **Validates: Requirements 7.5**
+
+- [x] 7. Create ExecutionLoop for tool orchestration
+  - [x] 7.1 Create execution-loop.ts with ExecutionLoop class
+    - Implement run() method for full conversation loop
+    - Implement iterate() for single iteration
+    - Handle undefined tool errors
+    - Enforce max iteration limit (10)
+    - Execute multiple tools in order
+    - _Requirements: 5.2, 5.5, 5.6, 7.2_
+  - [x] 7.2 Write property test for multiple tool execution order
+    - **Property 13: Multiple tool calls execute in order**
+    - **Validates: Requirements 5.5**
+  - [x] 7.3 Write property test for undefined tool error
+    - **Property 15: Undefined tool returns error**
+    - **Validates: Requirements 7.2**
+
+- [x] 8. Checkpoint - Ensure all core logic tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 9. Update DeepSeekService for Agent Mode
+  - [x] 9.1 Add buildAgentSystemPrompt() method
+    - Include tool definitions with JSON schemas
+    - Add clear instructions for tool usage format
+    - Specify json:tool block format
+    - _Requirements: 4.1, 4.2, 4.3, 4.4_
+  - [x] 9.2 Add chatWithHistory() method for multi-turn conversations
+    - Accept ChatMessage array
+    - Support tool result injection into conversation
+    - _Requirements: 5.6_
+
+- [x] 10. Create ToolOutputCard UI component
+  - [x] 10.1 Create tool-output-card.ts
+    - Implement render() method with tool name, params, result
+    - Add loading state support
+    - Style with gray background and monospace font
+    - _Requirements: 5.3, 5.4, 6.2, 6.3_
+  - [x] 10.2 Update styles.css for Tool Output styling
+    - Add .axon-tool-output class with distinct styling
+    - Add loading spinner styles
+    - Add success/error state colors
+    - _Requirements: 6.3_
+
+- [x] 11. Integrate MCP into AxonView
+  - [x] 11.1 Add Agent Mode indicator to InputPanel
+    - Display "🔓 Agent Mode Active" above input
+    - _Requirements: 6.1_
+  - [x] 11.2 Update handleSendMessage() to use ExecutionLoop
+    - Initialize ToolManager, ToolParser, ExecutionLoop
+    - Replace direct DeepSeekService call with ExecutionLoop.run()
+    - Display ToolOutputCard for each tool execution
+    - _Requirements: 5.2, 5.3, 5.4_
+  - [x] 11.3 Update ConsoleOutput to support ToolOutputCard
+    - Add addToolOutput() method
+    - Handle tool execution display
+    - _Requirements: 5.3, 5.4_
+
+- [x] 12. Final Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

@@ -4,6 +4,8 @@
  */
 
 import { SimpleEventBus } from '../core/event-bus';
+import { ContextIndicator } from './context-indicator';
+import { ContextMode } from '../core/types';
 
 export class AxonInputPanel {
   private container!: HTMLElement;
@@ -11,14 +13,29 @@ export class AxonInputPanel {
   private sendButton!: HTMLButtonElement;
   private analyzeButton!: HTMLButtonElement;
   private eventBus: SimpleEventBus;
+  private contextIndicator: ContextIndicator;
 
   constructor(eventBus: SimpleEventBus) {
     this.eventBus = eventBus;
+    this.contextIndicator = new ContextIndicator();
   }
 
   render(container: HTMLElement): void {
     this.container = container;
     this.container.addClass('axon-input-panel');
+
+    // Agent Mode 指示器
+    const agentModeIndicator = this.container.createDiv({
+      cls: 'axon-agent-mode-indicator'
+    });
+    agentModeIndicator.createSpan({ cls: 'axon-agent-mode-icon', text: '🔓' });
+    agentModeIndicator.createSpan({ cls: 'axon-agent-mode-text', text: 'Agent Mode Active' });
+
+    // 上下文指示器
+    const indicatorContainer = this.container.createDiv({
+      cls: 'axon-indicator-container'
+    });
+    this.contextIndicator.render(indicatorContainer);
 
     const inputWrapper = this.container.createDiv({
       cls: 'axon-input-wrapper'
@@ -47,6 +64,11 @@ export class AxonInputPanel {
     });
 
     this.bindEvents();
+  }
+
+  /** 更新上下文模式显示 */
+  updateContextMode(mode: ContextMode, selectionLength?: number): void {
+    this.contextIndicator.updateMode(mode, selectionLength);
   }
 
   private bindEvents(): void {
@@ -97,5 +119,15 @@ export class AxonInputPanel {
     this.textarea.disabled = !enabled;
     this.sendButton.disabled = !enabled;
     this.analyzeButton.disabled = !enabled;
+  }
+
+  setLoading(loading: boolean): void {
+    if (loading) {
+      this.sendButton.textContent = '⏳ 思考中...';
+      this.sendButton.addClass('axon-loading');
+    } else {
+      this.sendButton.textContent = '发送';
+      this.sendButton.removeClass('axon-loading');
+    }
   }
 }

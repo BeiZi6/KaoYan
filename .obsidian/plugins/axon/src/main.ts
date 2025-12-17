@@ -5,16 +5,26 @@
 
 import { Plugin } from 'obsidian';
 import { AxonView, AXON_VIEW_TYPE } from './core/axon-view';
+import { AxonSettingsTab } from './core/settings-tab';
+import { AxonSettings, DEFAULT_SETTINGS } from './core/types';
 
 export default class AxonPlugin extends Plugin {
+  settings: AxonSettings = DEFAULT_SETTINGS;
+
   async onload(): Promise<void> {
     console.log('Loading Axon plugin...');
+
+    // 加载设置
+    await this.loadSettings();
 
     // 注册视图
     this.registerView(
       AXON_VIEW_TYPE,
-      (leaf) => new AxonView(leaf)
+      (leaf) => new AxonView(leaf, this)
     );
+
+    // 添加设置页
+    this.addSettingTab(new AxonSettingsTab(this.app, this));
 
     // 添加侧边栏图标
     this.addRibbonIcon('terminal-square', 'Axon Console', () => {
@@ -35,12 +45,6 @@ export default class AxonPlugin extends Plugin {
       name: '分析当前文件',
       callback: async () => {
         await this.activateView();
-        // 触发分析事件
-        const leaves = this.app.workspace.getLeavesOfType(AXON_VIEW_TYPE);
-        if (leaves.length > 0) {
-          const view = leaves[0].view as AxonView;
-          // 通过公开方法触发分析
-        }
       }
     });
 
@@ -49,6 +53,14 @@ export default class AxonPlugin extends Plugin {
 
   onunload(): void {
     console.log('Unloading Axon plugin...');
+  }
+
+  async loadSettings(): Promise<void> {
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+  }
+
+  async saveSettings(): Promise<void> {
+    await this.saveData(this.settings);
   }
 
   async activateView(): Promise<void> {
