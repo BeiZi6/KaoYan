@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"n_center","type":"text","text":"第1章 通信电子线路概述","x":520,"y":310,"width":260,"height":80},
+		{"id":"n_goals","type":"text","text":"复习目标","x":160,"y":90,"width":180,"height":60},
+		{"id":"n_goal1","type":"text","text":"定义与『为什么必须高频』","x":40,"y":10,"width":260,"height":60},
+		{"id":"n_goal2","type":"text","text":"通信系统/收发机框图讲解","x":320,"y":10,"width":260,"height":60},
+		{"id":"n_goal3","type":"text","text":"调制/解调：AM/FM/PM","x":40,"y":170,"width":260,"height":60},
+		{"id":"n_goal4","type":"text","text":"传播方式：地波/天波/视距","x":320,"y":170,"width":260,"height":60},
+		{"id":"n_core","type":"text","text":"核心概念速记","x":930,"y":100,"width":200,"height":60},
+		{"id":"n_core1","type":"text","text":"通信电子线路：发射/接收/处理","x":860,"y":10,"width":280,"height":60},
+		{"id":"n_core2","type":"text","text":"信号：携带信息的物理过程","x":1150,"y":10,"width":280,"height":60},
+		{"id":"n_core3","type":"text","text":"三大平台：信号处理/电子线路/电波传播","x":980,"y":170,"width":340,"height":60},
+		{"id":"n_blocks","type":"text","text":"必背框图","x":930,"y":440,"width":200,"height":60},
+		{"id":"n_blocks1","type":"text","text":"通信系统：信源→Tx→信道→Rx→信宿","x":1160,"y":400,"width":360,"height":60},
+		{"id":"n_blocks2","type":"text","text":"收发机：调制/功放/天线/选频放大/解调","x":1160,"y":470,"width":360,"height":60},
+		{"id":"n_blocks3","type":"text","text":"高频硬理由：天线尺寸 + 选频『挑台』","x":1160,"y":540,"width":360,"height":60},
+		{"id":"n_points","type":"text","text":"考点清单","x":140,"y":440,"width":200,"height":60},
+		{"id":"n_points1","type":"text","text":"高频/调制/解调：定义、目的、AM/FM/PM","x":10,"y":520,"width":360,"height":70},
+		{"id":"n_points2","type":"text","text":"信道与传播：地波/天波/视距 + 频段与应用","x":10,"y":600,"width":360,"height":70},
+		{"id":"n_template","type":"text","text":"30–60 秒作答模板\\n通信系统组成 → 高频理由 → 调制/解调 → 传播特性","x":460,"y":600,"width":440,"height":90},
+		{"id":"n_exercises","type":"text","text":"练习题\\n画框图、解释高频、调制/解调、频段与传播应用","x":460,"y":710,"width":440,"height":90}
+	],
+	"edges":[
+		{"id":"e_center_goals","fromNode":"n_center","fromSide":"top","toNode":"n_goals","toSide":"bottom"},
+		{"id":"e_center_core","fromNode":"n_center","fromSide":"right","toNode":"n_core","toSide":"left"},
+		{"id":"e_center_blocks","fromNode":"n_center","fromSide":"right","toNode":"n_blocks","toSide":"left"},
+		{"id":"e_center_points","fromNode":"n_center","fromSide":"left","toNode":"n_points","toSide":"right"},
+		{"id":"e_center_template","fromNode":"n_center","fromSide":"bottom","toNode":"n_template","toSide":"top"},
+		{"id":"e_center_exercises","fromNode":"n_center","fromSide":"bottom","toNode":"n_exercises","toSide":"top"},
+		{"id":"e_goals_1","fromNode":"n_goals","fromSide":"top","toNode":"n_goal1","toSide":"bottom"},
+		{"id":"e_goals_2","fromNode":"n_goals","fromSide":"top","toNode":"n_goal2","toSide":"bottom"},
+		{"id":"e_goals_3","fromNode":"n_goals","fromSide":"bottom","toNode":"n_goal3","toSide":"top"},
+		{"id":"e_goals_4","fromNode":"n_goals","fromSide":"bottom","toNode":"n_goal4","toSide":"top"},
+		{"id":"e_core_1","fromNode":"n_core","fromSide":"top","toNode":"n_core1","toSide":"bottom"},
+		{"id":"e_core_2","fromNode":"n_core","fromSide":"top","toNode":"n_core2","toSide":"bottom"},
+		{"id":"e_core_3","fromNode":"n_core","fromSide":"bottom","toNode":"n_core3","toSide":"top"},
+		{"id":"e_blocks_1","fromNode":"n_blocks","fromSide":"right","toNode":"n_blocks1","toSide":"left"},
+		{"id":"e_blocks_2","fromNode":"n_blocks","fromSide":"right","toNode":"n_blocks2","toSide":"left"},
+		{"id":"e_blocks_3","fromNode":"n_blocks","fromSide":"right","toNode":"n_blocks3","toSide":"left"},
+		{"id":"e_points_1","fromNode":"n_points","fromSide":"bottom","toNode":"n_points1","toSide":"top"},
+		{"id":"e_points_2","fromNode":"n_points","fromSide":"bottom","toNode":"n_points2","toSide":"top"}
+	]
+}
