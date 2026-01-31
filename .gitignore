@@ -10,6 +10,9 @@
 # Claude
 .claude/
 
+# Worktrees
+.worktrees/
+
 # Thumbnails
 ._*
 
