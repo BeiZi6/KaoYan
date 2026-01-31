@@ -13,6 +13,10 @@
 # Worktrees
 .worktrees/
 
+# Local tooling outputs
+output/
+tools/long-image/node_modules/
+
 # Thumbnails
 ._*
 
